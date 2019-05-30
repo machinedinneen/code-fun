@@ -14,10 +14,10 @@ namespace StringCalculator
             if (string.IsNullOrEmpty(numbers))
                 return 0;
 
-            var allDelimiters = GetDelimiters(numbers);
+            var stringsToRemove = GetDelimiters(numbers);
 
             int[] nums = numbers
-                .Split(allDelimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries)
+                .Split(stringsToRemove.ToArray(), StringSplitOptions.RemoveEmptyEntries)
                 .Select(n => Convert.ToInt32(n))
                 .Where(n => n < 1000)
                 .ToArray();

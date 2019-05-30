@@ -52,7 +52,7 @@ namespace StringCalculator
         }
 
         [Test]
-        public void StringCalculator_Add_HandleDiffDelimiters()
+        public void StringCalculator_Add_HandleSingleDelimiter()
         {
             string number = "//;\n1;2";
 
@@ -124,6 +124,15 @@ namespace StringCalculator
 
             var result = _target.Add(number);
             Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void StringCalculator_Add_HandleSpaceDelimiter()
+        {
+            string number = "//[ ]\n1 2 3";
+
+            var result = _target.Add(number);
+            Assert.AreEqual(6, result);
         }
     }
 }
