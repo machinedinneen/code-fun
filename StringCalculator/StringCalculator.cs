@@ -7,6 +7,7 @@ namespace StringCalculator
     public class StringCalculator
     {
         private static List<string> _delimiters = new List<string>() { ",", "\n", "//", "[", "]" };
+
         public int Add(string numbers)
         {
 
@@ -20,7 +21,6 @@ namespace StringCalculator
                 .Select(n => Convert.ToInt32(n))
                 .Where(n => n < 1000)
                 .ToArray();
-
 
             CheckForNegativeNumbers(nums);
 
@@ -48,7 +48,6 @@ namespace StringCalculator
 
         private static void CheckForNegativeNumbers(int[] numbers)
         {
-
             var negNumbers = numbers.Where(n => n < 0);
 
             if (negNumbers.Any())
